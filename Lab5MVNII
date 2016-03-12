@@ -277,7 +277,13 @@
 0318 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
 031A A200 ; Chama a sub-rotina MNEM2OP
 031C A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-031E C31E ; Fim do programa
+031E 307C ; Carrega "|" para o acumulador
+0320 E100 ; Imprime "|"
+0322 8024 ; Carrega o valor de Byte1MNEM para o acumulador
+0324 E100 ; Imprime o valor de Byte1MNEM
+0326 8026 ; Carrega o valor de Byte2MNEM para o acumulador
+0328 E100 ; Imprime o valor de Byte2MNEM
+032A C32A ; Fim do programa
 ; ================================================================================
 ; Controle dos valores de OP e MNEM
 ; ================================================================================
