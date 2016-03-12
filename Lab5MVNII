@@ -1,0 +1,30 @@
+0000 0300 ; Jump para o programa principal
+0010 0000 ; Variável OPCODE (global) em hexadecimal
+0012 0000 ; Variável MNEM (global) em hexadecimal
+0100 0000 ; Sub-rotina OP2MNEM
+0200 0000 ; Sub-rotina MNEM2OP
+0300 0000 ; Programa principal
+0400 0000 ; Tabela de mnemônicos
+
+
+; Implementação da sub-rotina OP2MNEM
+0100 0000 ; Endereço de retorno da sub-rotina OP2MNEM
+
+1-Separar cada um dos bytes de OP tal que OP = OP1 OP2
+2-Utlizar um case para verificar todas as possibilidades de valores que o OP1 e OP2 podem assumir ~~be smart: muitos podem ser definidos olhando apenas o byte mais sinificativo ou o menos significativo
+3-Gravar MNEM1 e MNEM2 no endereço solicitado pelo enunciado
+
+; Implementação da sub-rotina MNEM2OP
+0200 0000 ; Endereço de retorno da subrotina MNEM2OP
+
+1, 2 e 3 -> Análoga ao anterior.
+
+0300 0000 ; Programa principal
+
+- Critério de seleção de OP2MNEM ou MNEM2OP -> nulo? usuário?
+- Caso usuário => converter para ASCII
+- Chamar as funções conforme o contexto
+- Imprimir o resultado na tela para verificarmos se o programa está funcionando ou não
+
+
+*Depois de terminado isso, criar um novo arquivo para fazermos esse mesmo programa só que em linguagem de montagem.
