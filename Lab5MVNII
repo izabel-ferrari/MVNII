@@ -1,3 +1,4 @@
+; ================================================================================
 0000 0300 ; Jump para o programa principal
 ; ================================================================================
 ; Variáveis
@@ -39,6 +40,40 @@
 060C 7030 ; Divide por 0x100
 060E 9024 ; Armazena o byte na variável Byte1MNEM
 0610 B600 ; Retorna para o endereço contido em 0x600
+; ================================================================================
+; Implementação da sub-rotina de impressão dos valores de OP e MNEM na tela
+; Resultado apresentado: |OP: <OPCODE> MNEM: <MNEM> 
+; ================================================================================
+0700 0000 ; Endereço de retorno
+0702 307C ; Carrega "|" para o acumulador
+0704 E100 ; Imprime "|"
+0706 304F ; Carrega "O" para o acumulador
+0708 E100 ; Imprime "O"
+070A 3050 ; Carrega "P" para o acumulador
+070C E100 ; Imprime "P"
+070E 303A ; Carrega ":" para o acumulador
+0710 E100 ; Imprime ":"
+0712 3020 ; Carrega " " para o acumulador
+0714 E100 ; Imprime " "
+0716 8010 ; Carrega o valor de OPCODE para o acumulador
+0718 E100 ; Imprime o valor de OPCODE
+071A 3020 ; Carrega " " para o acumulador
+071C E100 ; Imprime " "
+071E 304D ; Carrega "M" para o acumulador
+0720 E100 ; Imprime "M"
+0722 304E ; Carrega "N" para o acumulador
+0724 E100 ; Imprime "N"
+0726 3045 ; Carrega "E" para o acumulador
+0728 E100 ; Imprime "E"
+072A 304D ; Carrega "M" para o acumulador
+072C E100 ; Imprime "M"
+072E 303A ; Carrega ":" para o acumulador
+0730 E100 ; Imprime ":"
+0732 3020 ; Carrega " " para o acumulador
+0734 E100 ; Imprime " "
+0736 8012 ; Carrega o valor de MNEM para o acumulador
+0738 E100 ; Imprime o valor de MNEM
+073A B700 ; Retorna para o endereço em 0x700
 ; ================================================================================
 ; Implementação da sub-rotina OP2MNEM
 ; ================================================================================
@@ -218,9 +253,20 @@
 ; ================================================================================
 ; Programa principal
 ; ================================================================================
-0300      ; Início do programa
-
-- Critério de seleção de OP2MNEM ou MNEM2OP -> nulo? usuário?
-- Caso usuário => converter para ASCII
-- Chamar as funções conforme o contexto
-- Imprimir o resultado na tela para verificarmos se o programa está funcionando ou não
+0300 0302 ; Início do programa
+; Carrega para o acumulador o valor desejado para OP
+; Guarda o valor na variável global OPCODE
+; Carrega o valor 0x000 para o acumulador
+; Guarda o valor na variável global MNEM
+; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+; Chama a sub-rotina OP2MNEM
+; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+; Carrega o valor 0x000 parao acumulador
+; Guarda o valor na variável global OPCODE
+; Carrega para o acumulador o valor desejado para MNEM
+; Guarda o valor na variável global MNEM
+; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+; Chama a sub-rotina MNEM2OP
+; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+; Fim do programa
+; ================================================================================
