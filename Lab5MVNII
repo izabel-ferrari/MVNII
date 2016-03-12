@@ -9,6 +9,11 @@
 0026 0000 ; Variável Byte2MNEM
 0028 0001 ; Constante = 0x001
 0030 0100 ; Constante = 0x100
+0032 002B ; Constante = 0x02B
+0034 0002 ; Constante = 0x002
+0036 0018 ; Constante = 0x018
+0038 0050 ; Constante = 0x050
+003A 0056 ; Constante = 0x056
 ; ================================================================================
 ; Tabela de mnemônicos
 ; ================================================================================
@@ -254,9 +259,9 @@
 ; Programa principal
 ; ================================================================================
 0300 0302 ; Início do programa
-0302 3001 ; Carrega para o acumulador o valor desejado para OP
+0302 3030 ; Carrega para o acumulador o valor desejado para OP
 0304 9010 ; Guarda o valor na variável global OPCODE
-0306 3000 ; Carrega o valor 0x000 para o acumulador
+0306 3030 ; Carrega o valor 0x000 para o acumulador
 0308 9012 ; Guarda o valor na variável global MNEM
 030A A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
 030C A100 ; Chama a sub-rotina OP2MNEM
