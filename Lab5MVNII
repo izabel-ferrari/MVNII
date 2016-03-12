@@ -285,7 +285,9 @@
 0324 E100 ; Imprime o valor de Byte1MNEM
 0326 8026 ; Carrega o valor de Byte2MNEM para o acumulador
 0328 E100 ; Imprime o valor de Byte2MNEM
-032A C32A ; Fim do programa
+032A 307C ; Carrega "|" para o acumulador
+032C E100 ; Imprime "|"
+032E C32E ; Fim do programa
 ; ================================================================================
 ; Controle dos valores de OP e MNEM
 ; ================================================================================
