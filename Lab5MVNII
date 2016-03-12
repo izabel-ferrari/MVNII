@@ -17,6 +17,25 @@
 0028 0001 ; Constante = 0x001
 0030 0100 ; Constante = 0x100
 ; ================================================================================
+; Tabela de mnemònicos
+; ================================================================================
+0400 4A50 ; Valor em hexadecimal de MNEM = JP
+0402 4A5A ; Valor em hexadecimal de MNEM = JZ
+0404 4A4E ; Valor em hexadecimal de MNEM = JN
+0406 4C56 ; Valor em hexadecimal de MNEM = LV
+0408 2B5F ; Valor em hexadecimal de MNEM = +_
+040A 2D5F ; Valor em hexadecimal de MNEM = -_
+040C 2A5F ; Valor em hexadecimal de MNEM = *_
+040E 2F5F ; Valor em hexadecimal de MNEM = /_
+0410 4C44 ; Valor em hexadecimal de MNEM = LD
+0412 4D4D ; Valor em hexadecimal de MNEM = MM
+0414 5343 ; Valor em hexadecimal de MNEM = SC
+0146 5253 ; Valor em hexadecimal de MNEM = RS
+0148 484D ; Valor em hexadecimal de MNEM = HM
+014A 4744 ; Valor em hexadecimal de MNEM = GD
+014C 5044 ; Valor em hexadecimal de MNEM = PD
+014E 4F53 ; Valor em hexadecimal de MNEM = OS
+; ================================================================================
 ; Implementação da sub-rotina de separação de bytes de MNEM
 ; ================================================================================
 0600 0000 ; Endereço de retorno
@@ -66,53 +85,53 @@
 0140 5028 ; Subtrai 0x001 do valor do acumulador
 0142 21A0 ; Desvio se o acumulador é negativo (OPCODE = 0x00F)
 0144 B100 ; Retorna para o endereço contido em 0x100
-0146 ; Carrega o valor em hexadecimal de MNEM = JP
-0148 ; Guarda o valor carregado em MNEM
+0146 8400 ; Carrega o valor em hexadecimal de MNEM = JP
+0148 9012 ; Guarda o valor carregado em MNEM
 014A B100 ; Retorna para o endereço contido em 0x100
-014C; Carrega o valor em hexadecimal de MNEM = JZ
-014E; Guarda o valor carregado em MNEM
+014C 8402 ; Carrega o valor em hexadecimal de MNEM = JZ
+014E 9012 ; Guarda o valor carregado em MNEM
 0150 B100 ; Retorna para o endereço contido em 0x100
-0152; Carrega o valor em hexadecimal de MNEM = JN
-0154; Guarda o valor carregado em MNEM
+0152 8404 ; Carrega o valor em hexadecimal de MNEM = JN
+0154 9012 ; Guarda o valor carregado em MNEM
 0156 B100 ; Retorna para o endereço contido em 0x100
-0158; Carrega o valor em hexadecimal de MNEM = LV
-015A; Guarda o valor carregado em MNEM
+0158 8406 ; Carrega o valor em hexadecimal de MNEM = LV
+015A 9012 ; Guarda o valor carregado em MNEM
 015C B100 ; Retorna para o endereço contido em 0x100
-015E; Carrega o valor em hexadecimal de MNEM = +_
-0160; Guarda o valor carregado em MNEM
-0162 B100; Retorna para o endereço contido em 0x100
-0164; Carrega o valor em hexadecimal de MNEM = -_
-0166; Guarda o valor carregado em MNEM
+015E 8408 ; Carrega o valor em hexadecimal de MNEM = +_
+0160 9012 ; Guarda o valor carregado em MNEM
+0162 B100 ; Retorna para o endereço contido em 0x100
+0164 840A ; Carrega o valor em hexadecimal de MNEM = -_
+0166 9012 ; Guarda o valor carregado em MNEM
 0168 B100 ; Retorna para o endereço contido em 0x100
-016A; Carrega o valor em hexadecimal de MNEM = *_
-016C; Guarda o valor carregado em MNEM
+016A 840C ; Carrega o valor em hexadecimal de MNEM = *_
+016C 9012 ; Guarda o valor carregado em MNEM
 016E B100 ; Retorna para o endereço contido em 0x100
-0170; Carrega o valor em hexadecimal de MNEM = /_
-0172; Guarda o valor carregado em MNEM
+0170 840E ; Carrega o valor em hexadecimal de MNEM = /_
+0172 9012 ; Guarda o valor carregado em MNEM
 0174 B100 ; Retorna para o endereço contido em 0x100
-0176; Carrega o valor em hexadecimal de MNEM = LD
-0178; Guarda o valor carregado em MNEM
+0176 8410 ; Carrega o valor em hexadecimal de MNEM = LD
+0178 9012 ; Guarda o valor carregado em MNEM
 017A B100 ; Retorna para o endereço contido em 0x100
-017C; Carrega o valor em hexadecimal de MNEM = MM
-017E; Guarda o valor carregado em MNEM
+017C 8412 ; Carrega o valor em hexadecimal de MNEM = MM
+017E 9012 ; Guarda o valor carregado em MNEM
 0180 B100 ; Retorna para o endereço contido em 0x100
-0182; Carrega o valor em hexadecimal de MNEM = SC
-0184; Guarda o valor carregado em MNEM
+0182 8414 ; Carrega o valor em hexadecimal de MNEM = SC
+0184 9012 ; Guarda o valor carregado em MNEM
 0186 B100 ; Retorna para o endereço contido em 0x100
-0188; Carrega o valor em hexadecimal de MNEM = RS
-018A; Guarda o valor carregado em MNEM
+0188 8416 ; Carrega o valor em hexadecimal de MNEM = RS
+018A 9012 ; Guarda o valor carregado em MNEM
 018C B100 ; Retorna para o endereço contido em 0x100
-018E; Carrega o valor em hexadecimal de MNEM = HM
-0190; Guarda o valor carregado em MNEM
+018E 8418 ; Carrega o valor em hexadecimal de MNEM = HM
+0190 9012 ; Guarda o valor carregado em MNEM
 0192 B100 ; Retorna para o endereço contido em 0x100
-0194; Carrega o valor em hexadecimal de MNEM = GD
-0196; Guarda o valor carregado em MNEM
+0194 841A ; Carrega o valor em hexadecimal de MNEM = GD
+0196 9012 ; Guarda o valor carregado em MNEM
 0198 B100 ; Retorna para o endereço contido em 0x100
-019A; Carrega o valor em hexadecimal de MNEM = PD
-019C; Guarda o valor carregado em MNEM
+019A 841C ; Carrega o valor em hexadecimal de MNEM = PD
+019C 9012 ; Guarda o valor carregado em MNEM
 019E B100 ; Retorna para o endereço contido em 0x100
-01A0; Carrega o valor em hexadecimal de MNEM = OS
-01A2; Guarda o valor carregado em MNEM
+01A0 841E ; Carrega o valor em hexadecimal de MNEM = OS
+01A2 9012 ; Guarda o valor carregado em MNEM
 01A4 B100 ; Retorna para o endereço contido em 0x100
 ; ================================================================================
 ; Implementação da sub-rotina MNEM2OP
