@@ -194,7 +194,7 @@
 ; ================================================================================
 ; Programa principal
 ; ================================================================================
-0300 0002 ; Início do programa
+0300 0302 ; Início do programa
 0302 A800 ; Chama a sub-rotina de testes de OP2MNEM
 0304 A900 ; Chama a sub-rotina de testes de MNEM2OP
 0306 C306 ; Fim do programa
