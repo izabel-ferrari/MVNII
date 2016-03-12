@@ -1,30 +1,68 @@
 0000 0300 ; Jump para o programa principal
+; ================================================================================
+; Índice
+; ================================================================================
+; 0100 0000 ; Sub-rotina OP2MNEM
+; 0200 0000 ; Sub-rotina MNEM2OP
+; 0300 0000 ; Programa principal
+; 0400 0000 ; Tabela de mnemônicos
+; 0500 0000 ; Sub-rotina de separação de bytes de OP
+; 0600 0000 ; Sub-rotina de separação de bytes de MNEM
+; ================================================================================
+; Variáveis
+; ================================================================================
 0010 0000 ; Variável OPCODE (global) em hexadecimal
 0012 0000 ; Variável MNEM (global) em hexadecimal
-0100 0000 ; Sub-rotina OP2MNEM
-0200 0000 ; Sub-rotina MNEM2OP
-0300 0000 ; Programa principal
-0400 0000 ; Tabela de mnemônicos
-
-
+0020 0000 ; Variável Byte1OP
+0022 0000 ; Variável Byte2OP
+0024 0000 ; Variável Byte1MNEM
+0026 0000 ; Variável Byte2MNEM
+0030 0100 ; Constante = 0x100
+; ================================================================================
+; Implementação da sub-rotina de Separação de bytes de OP
+; ================================================================================
+0500 0000 ; Endereço de retorno
+0502 8010 ; Carrega o valor de OP
+0504 6030 ; Multiplica o valor por 0x100
+0506 7030 ; Divide o valor por 0x100
+0508 9022 ; Armazena o byte na variável Byte2OP
+050A 8010 ; Carrega o valor de OP no acumulador
+050C 7030 ; Divide por 0x100
+050E 9020 ; Armazena o byte na variável Byte1OP
+0510 B500 ; Retorna para o endereço contido em 0x500
+; ================================================================================
+; Implementação da sub-rotina de Separação de bytes de MNEM
+; ================================================================================
+0600 0000 ; Endereço de retorno
+0602 8012 ; Carrega o valor de MNEM
+0604 6030 ; Multiplica o valor por 0x100
+0606 7030 ; Divide o valor por 0x100
+0608 9026 ; Armazena o byte na variável Byte2MNEM
+060A 8012 ; Carrega o valor de MNEM no acumulador
+060C 7030 ; Divide por 0x100
+060E 9024 ; Armazena o byte na variável Byte1MNEM
+0610 B600 ; Retorna para o endereço contido em 0x600
+; ================================================================================
 ; Implementação da sub-rotina OP2MNEM
-0100 0000 ; Endereço de retorno da sub-rotina OP2MNEM
+; ================================================================================
+0100      ; Endereço de retorno da sub-rotina OP2MNEM
 
-1-Separar cada um dos bytes de OP tal que OP = OP1 OP2
+1-Chamar a rotina de separação de bytes de OP
 2-Utlizar um case para verificar todas as possibilidades de valores que o OP1 e OP2 podem assumir ~~be smart: muitos podem ser definidos olhando apenas o byte mais sinificativo ou o menos significativo
 3-Gravar MNEM1 e MNEM2 no endereço solicitado pelo enunciado
 
+; ================================================================================
 ; Implementação da sub-rotina MNEM2OP
-0200 0000 ; Endereço de retorno da subrotina MNEM2OP
+; ================================================================================
+0200      ; Endereço de retorno da subrotina MNEM2OP
 
 1, 2 e 3 -> Análoga ao anterior.
-
-0300 0000 ; Programa principal
+; ================================================================================
+; Programa principal
+; ================================================================================
+0300      ; Início do programa
 
 - Critério de seleção de OP2MNEM ou MNEM2OP -> nulo? usuário?
 - Caso usuário => converter para ASCII
 - Chamar as funções conforme o contexto
 - Imprimir o resultado na tela para verificarmos se o programa está funcionando ou não
-
-
-*Depois de terminado isso, criar um novo arquivo para fazermos esse mesmo programa só que em linguagem de montagem.
