@@ -8,7 +8,7 @@
 0024 0000 ; Variável Byte1MNEM
 0026 0000 ; Variável Byte2MNEM
 0028 0031 ; Constante = 0x001
-0030 0130 ; Constante = 0x100
+0030 0030 ; Constante = 0x100
 0032 005B ; Constante = 0x02B
 0034 0032 ; Constante = 0x002
 0036 0048 ; Constante = 0x018
