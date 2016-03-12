@@ -136,9 +136,43 @@
 ; ================================================================================
 ; Implementação da sub-rotina MNEM2OP
 ; ================================================================================
-0200      ; Endereço de retorno da subrotina MNEM2OP
+; Endereço de retorno da sub-rotina MNEM2OP
+; Chamando a sub-rotina de separação dos byte de MNEM
+; Carrega o valor de Byte1MNEM no acumulador
+; Subtrai 0x002B do valor carregado no acumulador
+; Desvio se acumulador é negativo (Byte1MNEM = 0x02A)
+; Subtrai 0x001 do valor carregado no acumulador 
+; Desvio se acumulador é negativo (Byte1MNEM = 0x02B)
+; Subtrai 0x002 do valor carregado no acumulador
+; Desvio se acumulador é negativo (Byte1MNEM = 0x02D)
+; Subtrai 0x002 do valor carregado no acumulador
+; Desvio se acumulador é negativo (Byte1MNEM = 0x02F)
+; Subtrai 0x018 do valor carregado no acumulador
+; Desvio se acumulador é negativo (Byte1MNEM = 0x047)
+; Subtrai 0x001 do valor carregado no acumulador
+; Desvio se acumulador é negativo (Byte1MNEM = 0x048)
+; Subtrai 0x002 do valor carregado no acumulador 
+; Desvio se acumulador é negativo (Byte1MNEM = 0x04A)
+; Subtrai 0x002 do valor carregado no acumulador 
+; Desvio se acumulador é negativo (Byte1MNEM = 0x04C)
+; Subtrai 0x001 do valor carregado no acumulador
+; Desvio se acumulador é negativo (Byte1MNEM = 0x04D)
+; Subtrai 0x002 do valor carregado no acumulador 
+; Desvio se acumulador é negativo (Byte1MNEM = 0x04F)
+; Subtrai 0x001 do valor carregado no acumulador
+; Desvio se acumulador é negativo (Byte1MNEM = 0x050)
+; Subtrai 0x002 do valor carregado no acumulador 
+; Desvio se acumulador é negativo (Byte1MNEM = 0x052)
+; Subtrai 0x001 do valor carregado no acumulador
+; Desvio se acumulador é negativo (Byte1MNEM = 0x053)
+; Retorna para o endereço contido em 0x0200
+; 
+1-chamar a sub-rotina de separação dos bytes de MNEM
+2-fazer um case com o byte 1, redirecionando cada caso para um OP específico
+3-fazer um case com o byte 2, quando necessário, também redirecionando para um OP específico
+4-salvar o OP carregado no acumulador a variável global OPCODE
+5-sair da função
 
-1, 2 e 3 -> Análoga ao anterior.
 ; ================================================================================
 ; Programa principal
 ; ================================================================================
