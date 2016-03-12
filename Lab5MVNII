@@ -7,13 +7,13 @@
 0012 0000 ; Variável MNEM (global) em hexadecimal
 0024 0000 ; Variável Byte1MNEM
 0026 0000 ; Variável Byte2MNEM
-0028 0001 ; Constante = 0x001
-0030 0100 ; Constante = 0x100
-0032 002B ; Constante = 0x02B
-0034 0002 ; Constante = 0x002
-0036 0018 ; Constante = 0x018
-0038 0050 ; Constante = 0x050
-003A 0056 ; Constante = 0x056
+0028 0031 ; Constante = 0x001
+0030 0130 ; Constante = 0x100
+0032 005B ; Constante = 0x02B
+0034 0032 ; Constante = 0x002
+0036 0048 ; Constante = 0x018
+0038 0080 ; Constante = 0x050
+003A 0086 ; Constante = 0x056
 ; ================================================================================
 ; Tabela de mnemônicos
 ; ================================================================================
@@ -198,37 +198,37 @@
 0236 5028 ; Subtrai 0x001 do valor carregado no acumulador
 0238 2278 ; Desvio se acumulador é negativo (Byte1MNEM = 0x053)
 023A B200 ; Retorna para o endereço contido em 0x0200
-023C 3006 ; Carrega o valor 0x006 no acumulador (OPCODE = 0x006)
+023C 3036 ; Carrega o valor 0x006 no acumulador (OPCODE = 0x006)
 023E 9010 ; Armazena o valor carregado na variável global OPCODE
 0240 B200 ; Retorna para o endereço contido em 0x0200
-0242 3004 ; Carrega o valor 0x004 no acumulador (OPCODE = 0x004)
+0242 3034 ; Carrega o valor 0x004 no acumulador (OPCODE = 0x004)
 0244 9010 ; Armazena o valor carregado na variável global OPCODE
 0246 B200 ; Retorna para o endereço contido em 0x0200
-0248 3005 ; Carrega o valor 0x005 no acumulador (OPCODE = 0x005)
+0248 3035 ; Carrega o valor 0x005 no acumulador (OPCODE = 0x005)
 024A 9010 ; Armazena o valor carregado na variável global OPCODE
 024C B200 ; Retorna para o endereço contido em 0x0200
-024E 3007 ; Carrega o valor 0x007 no acumulador (OPCODE = 0x007)
+024E 3037 ; Carrega o valor 0x007 no acumulador (OPCODE = 0x007)
 0250 9010 ; Armazena o valor carregado na variável global OPCODE
 0252 B200 ; Retorna para o endereço contido em 0x0200
-0254 033D ; Carrega o valor 0x00D no acumulador (OPCODE = 0x00D)
+0254 303D ; Carrega o valor 0x00D no acumulador (OPCODE = 0x00D)
 0256 9010 ; Armazena o valor carregado na variável global OPCODE
 0258 B200 ; Retorna para o endereço contido em 0x0200
-025A 300C ; Carrega o valor 0x00C no acumulador (OPCODE = 0x00C)
+025A 303C ; Carrega o valor 0x00C no acumulador (OPCODE = 0x00C)
 025C 9010 ; Armazena o valor carregado na variável global OPCODE
 025E B200 ; Retorna para o endereço contido em 0x0200
-0260 3009 ; Carrega o valor 0x009 no acumulador (OPCODE = 0x009)
+0260 3039 ; Carrega o valor 0x009 no acumulador (OPCODE = 0x009)
 0262 9010 ; Armazena o valor carregado na variável global OPCODE
 0264 B200 ; Retorna para o endereço contido em 0x0200
-0266 300F ; Carrega o valor 0x00F no acumulador (OPCODE = 0x00F)
+0266 303F ; Carrega o valor 0x00F no acumulador (OPCODE = 0x00F)
 0268 9010 ; Armazena o valor carregado na variável global OPCODE
 026A B200 ; Retorna para o endereço contido em 0x0200
-026C 300E ; Carrega o valor 0x00E no acumulador (OPCODE = 0x00E)
+026C 303E ; Carrega o valor 0x00E no acumulador (OPCODE = 0x00E)
 026E 9010 ; Armazena o valor carregado na variável global OPCODE
 0270 B200 ; Retorna para o endereço contido em 0x0200
-0272 300B ; Carrega o valor 0x00B no acumulador (OPCODE = 0x00B)
+0272 303B ; Carrega o valor 0x00B no acumulador (OPCODE = 0x00B)
 0274 9010 ; Armazena o valor carregado na variável global OPCODE
 0276 B200 ; Retorna para o endereço contido em 0x0200
-0278 300A ; Carrega o valor 0x00A no acumulador (OPCODE = 0x00A)
+0278 303A ; Carrega o valor 0x00A no acumulador (OPCODE = 0x00A)
 027A 9010 ; Armazena o valor carregado na variável global OPCODE
 027C B200 ; Retorna para o endereço contido em 0x0200
 027E 8026 ; Carrega o valor de Byte2MNEM no acumulador
@@ -236,23 +236,23 @@
 0282 2288 ; Desvio se negativo (MNEM = 4A4E)
 0284 128E ; Desvio se zero (MNEM = 4A50)
 0286 0294 ; Desvio incondicional (MNEM = 4A5A)
-0288 3002 ; Carrega o valor 0x002 no acumulador (OPCODE = 0x002)
+0288 3032 ; Carrega o valor 0x002 no acumulador (OPCODE = 0x002)
 028A 9010 ; Armazena o valor carregado na variável global OPCODE
 028C B200 ; Retorna para o endereço contido em 0x0200
-028E 3000 ; Carrega o valor 0x000 no acumulador (OPCODE = 0x000)
+028E 3030 ; Carrega o valor 0x000 no acumulador (OPCODE = 0x000)
 0290 9010 ; Armazena o valor carregado na variável global OPCODE
 0292 B200 ; Retorna para o endereço contido em 0x0200
-0294 3001 ; Carrega o valor 0x001 no acumulador (OPCODE = 0x001)
+0294 3031 ; Carrega o valor 0x001 no acumulador (OPCODE = 0x001)
 0296 9010 ; Armazena o valor carregado na variável global OPCODE
 0298 B200 ; Retorna para o endereço contido em 0x0200
 029A 8026 ; Carrega o valor de Byte2MNEM no acumulador
 029C 503A ; Subtrai 0x056 do valor do acumulador
 029E 22A2 ; Desvio se negativo (MNEM = 4C44)
 02A0 12A8 ; Desvio se zero (MNEM = 4C56)
-02A2 3008 ; Carrega o valor 0x008 no acumulador (OPCODE = 0x008)
+02A2 3038 ; Carrega o valor 0x008 no acumulador (OPCODE = 0x008)
 02A4 9010 ; Armazena o valor carregado na variável global OPCODE
 02A6 B200 ; Retorna para o endereço contido em 0x200
-02A8 3003 ; Carrega o valor 0x003 (OPCODE = 0x003) no acumulador
+02A8 3033 ; Carrega o valor 0x003 (OPCODE = 0x003) no acumulador
 02AA 9010 ; Armazena o valor carregado na variável global OPCODE
 02AC B200 ; Retorna para o endereço contido em 0x200
 ; ================================================================================
@@ -266,7 +266,7 @@
 030A A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
 030C A100 ; Chama a sub-rotina OP2MNEM
 030E A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0310 3000 ; Carrega o valor 0x000 para o acumulador
+0310 3030 ; Carrega o valor 0x000 para o acumulador
 0312 9010 ; Guarda o valor na variável global OPCODE
 0314 8406 ; Carrega para o acumulador o valor desejado para MNEM
 0316 9012 ; Guarda o valor na variável global MNEM
