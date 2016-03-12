@@ -6,32 +6,18 @@
 ; 0200 0000 ; Sub-rotina MNEM2OP
 ; 0300 0000 ; Programa principal
 ; 0400 0000 ; Tabela de mnemônicos
-; 0500 0000 ; Sub-rotina de separação de bytes de OP
 ; 0600 0000 ; Sub-rotina de separação de bytes de MNEM
 ; ================================================================================
 ; Variáveis
 ; ================================================================================
 0010 0000 ; Variável OPCODE (global) em hexadecimal
 0012 0000 ; Variável MNEM (global) em hexadecimal
-0020 0000 ; Variável Byte1OP
-0022 0000 ; Variável Byte2OP
 0024 0000 ; Variável Byte1MNEM
 0026 0000 ; Variável Byte2MNEM
+0028 0001 ; Constante = 0x001
 0030 0100 ; Constante = 0x100
 ; ================================================================================
-; Implementação da sub-rotina de Separação de bytes de OP
-; ================================================================================
-0500 0000 ; Endereço de retorno
-0502 8010 ; Carrega o valor de OP
-0504 6030 ; Multiplica o valor por 0x100
-0506 7030 ; Divide o valor por 0x100
-0508 9022 ; Armazena o byte na variável Byte2OP
-050A 8010 ; Carrega o valor de OP no acumulador
-050C 7030 ; Divide por 0x100
-050E 9020 ; Armazena o byte na variável Byte1OP
-0510 B500 ; Retorna para o endereço contido em 0x500
-; ================================================================================
-; Implementação da sub-rotina de Separação de bytes de MNEM
+; Implementação da sub-rotina de separação de bytes de MNEM
 ; ================================================================================
 0600 0000 ; Endereço de retorno
 0602 8012 ; Carrega o valor de MNEM
@@ -45,12 +31,89 @@
 ; ================================================================================
 ; Implementação da sub-rotina OP2MNEM
 ; ================================================================================
-0100      ; Endereço de retorno da sub-rotina OP2MNEM
-
-1-Chamar a rotina de separação de bytes de OP
-2-Utlizar um case para verificar todas as possibilidades de valores que o OP1 e OP2 podem assumir ~~be smart: muitos podem ser definidos olhando apenas o byte mais sinificativo ou o menos significativo
-3-Gravar MNEM1 e MNEM2 no endereço solicitado pelo enunciado
-
+0100 0000 ; Endereço de retorno da sub-rotina OP2MNEM
+0102 8010 ; Carrega o valor de OP no acumulador
+0104 5028 ; Subtrai 0x001 do valor do acumulador
+0106 2146 ; Desvio se o acumulador é negativo (OPCODE = 0x000)
+0108 5028 ; Subtrai 0x001 do valor do acumulador
+010A 214C ; Desvio se o acumulador é negativo (OPCODE = 0x001)
+010C 5028 ; Subtrai 0x001 do valor do acumulador
+010E 2152 ; Desvio se o acumulador é negativo (OPCODE = 0x002)
+0110 5028 ; Subtrai 0x001 do valor do acumulador
+0112 2158 ; Desvio se o acumulador é negativo (OPCODE = 0x003)
+0114 5028 ; Subtrai 0x001 do valor do acumulador
+0116 215E ; Desvio se o acumulador é negativo (OPCODE = 0x004)
+0118 5028 ; Subtrai 0x001 do valor do acumulador
+011A 2164 ; Desvio se o acumulador é negativo (OPCODE = 0x005)
+011C 5028 ; Subtrai 0x001 do valor do acumulador
+011E 216A ; Desvio se o acumulador é negativo (OPCODE = 0x006)
+0120 5028 ; Subtrai 0x001 do valor do acumulador
+0122 2170 ; Desvio se o acumulador é negativo (OPCODE = 0x007)
+0124 5028 ; Subtrai 0x001 do valor do acumulador
+0126 2176 ; Desvio se o acumulador é negativo (OPCODE = 0x008)
+0128 5028 ; Subtrai 0x001 do valor do acumulador
+012A 217C ; Desvio se o acumulador é negativo (OPCODE = 0x009)
+012C 5028 ; Subtrai 0x001 do valor do acumulador
+012E 2182 ; Desvio se o acumulador é negativo (OPCODE = 0x00A)
+0130 5028 ; Subtrai 0x001 do valor do acumulador
+0132 2188 ; Desvio se o acumulador é negativo (OPCODE = 0x00B)
+0134 5028 ; Subtrai 0x001 do valor do acumulador
+0136 218E ; Desvio se o acumulador é negativo (OPCODE = 0x00C)
+0138 5028 ; Subtrai 0x001 do valor do acumulador
+013A 2194 ; Desvio se o acumulador é negativo (OPCODE = 0x00D)
+013C 5028 ; Subtrai 0x001 do valor do acumulador
+013E 219A ; Desvio se o acumulador é negativo (OPCODE = 0x00E)
+0140 5028 ; Subtrai 0x001 do valor do acumulador
+0142 21A0 ; Desvio se o acumulador é negativo (OPCODE = 0x00F)
+0144 B100 ; Retorna para o endereço contido em 0x100
+0146 ; Carrega o valor em hexadecimal de MNEM = JP
+0148 ; Guarda o valor carregado em MNEM
+014A B100 ; Retorna para o endereço contido em 0x100
+014C; Carrega o valor em hexadecimal de MNEM = JZ
+014E; Guarda o valor carregado em MNEM
+0150 B100 ; Retorna para o endereço contido em 0x100
+0152; Carrega o valor em hexadecimal de MNEM = JN
+0154; Guarda o valor carregado em MNEM
+0156 B100 ; Retorna para o endereço contido em 0x100
+0158; Carrega o valor em hexadecimal de MNEM = LV
+015A; Guarda o valor carregado em MNEM
+015C B100 ; Retorna para o endereço contido em 0x100
+015E; Carrega o valor em hexadecimal de MNEM = +_
+0160; Guarda o valor carregado em MNEM
+0162 B100; Retorna para o endereço contido em 0x100
+0164; Carrega o valor em hexadecimal de MNEM = -_
+0166; Guarda o valor carregado em MNEM
+0168 B100 ; Retorna para o endereço contido em 0x100
+016A; Carrega o valor em hexadecimal de MNEM = *_
+016C; Guarda o valor carregado em MNEM
+016E B100 ; Retorna para o endereço contido em 0x100
+0170; Carrega o valor em hexadecimal de MNEM = /_
+0172; Guarda o valor carregado em MNEM
+0174 B100 ; Retorna para o endereço contido em 0x100
+0176; Carrega o valor em hexadecimal de MNEM = LD
+0178; Guarda o valor carregado em MNEM
+017A B100 ; Retorna para o endereço contido em 0x100
+017C; Carrega o valor em hexadecimal de MNEM = MM
+017E; Guarda o valor carregado em MNEM
+0180 B100 ; Retorna para o endereço contido em 0x100
+0182; Carrega o valor em hexadecimal de MNEM = SC
+0184; Guarda o valor carregado em MNEM
+0186 B100 ; Retorna para o endereço contido em 0x100
+0188; Carrega o valor em hexadecimal de MNEM = RS
+018A; Guarda o valor carregado em MNEM
+018C B100 ; Retorna para o endereço contido em 0x100
+018E; Carrega o valor em hexadecimal de MNEM = HM
+0190; Guarda o valor carregado em MNEM
+0192 B100 ; Retorna para o endereço contido em 0x100
+0194; Carrega o valor em hexadecimal de MNEM = GD
+0196; Guarda o valor carregado em MNEM
+0198 B100 ; Retorna para o endereço contido em 0x100
+019A; Carrega o valor em hexadecimal de MNEM = PD
+019C; Guarda o valor carregado em MNEM
+019E B100 ; Retorna para o endereço contido em 0x100
+01A0; Carrega o valor em hexadecimal de MNEM = OS
+01A2; Guarda o valor carregado em MNEM
+01A4 B100 ; Retorna para o endereço contido em 0x100
 ; ================================================================================
 ; Implementação da sub-rotina MNEM2OP
 ; ================================================================================
