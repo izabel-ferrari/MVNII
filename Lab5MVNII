@@ -262,7 +262,7 @@
 ; ================================================================================
 0300 0302 ; Início do programa
 ;
-0302 300A ; Carrega para o acumulador o valor desejado para OP
+0302 3000 ; Carrega para o acumulador o valor desejado para OP
 0304 9010 ; Guarda o valor na variável global OPCODE
 0306 3000 ; Carrega o valor 0x000 para o acumulador
 0308 9012 ; Guarda o valor na variável global MNEM
@@ -271,7 +271,7 @@
 030C A100 ; Chama a sub-rotina OP2MNEM
 030E A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
 ;
-0310 3030 ; Carrega o valor 0x000 para o acumulador
+0310 3000 ; Carrega o valor 0x000 para o acumulador
 0312 9010 ; Guarda o valor na variável global OPCODE
 0314 841A ; Carrega para o acumulador o valor desejado para MNEM
 0316 9012 ; Guarda o valor na variável global MNEM
@@ -296,6 +296,6 @@
 ; ================================================================================
 ; Valor inicial: OP = 0 e MNEM = 0
 ; Após OP2MNEM : OP = 0 e MNEM = JP
-; Valor inicial: OP = 0 e MNEM = JP
-; Após MNEM2OP : OP = 0 e MNEM = JP
+; Valor inicial: OP = 0 e MNEM = GD
+; Após MNEM2OP : OP = D e MNEM = GD
 ; ================================================================================
