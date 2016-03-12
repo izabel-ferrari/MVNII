@@ -9,6 +9,11 @@
 0026 0000 ; Variável Byte2MNEM
 0028 0001 ; Constante = 0x001
 0030 0100 ; Constante = 0x100
+0032 002B ; Constante = 0x02B
+0034 0002 ; Constante = 0x002
+0036 0018 ; Constante = 0x018
+0038 0050 ; Constante = 0x050
+003A 0056 ; Constante = 0x056
 ; ================================================================================
 ; Tabela de mnemônicos
 ; ================================================================================
@@ -56,24 +61,25 @@
 0712 3020 ; Carrega " " para o acumulador
 0714 E100 ; Imprime " "
 0716 8010 ; Carrega o valor de OPCODE para o acumulador
-0718 E100 ; Imprime o valor de OPCODE
-071A 3020 ; Carrega " " para o acumulador
-071C E100 ; Imprime " "
-071E 304D ; Carrega "M" para o acumulador
-0720 E100 ; Imprime "M"
-0722 304E ; Carrega "N" para o acumulador
-0724 E100 ; Imprime "N"
-0726 3045 ; Carrega "E" para o acumulador
-0728 E100 ; Imprime "E"
-072A 304D ; Carrega "M" para o acumulador
-072C E100 ; Imprime "M"
-072E 303A ; Carrega ":" para o acumulador
-0730 E100 ; Imprime ":"
-0732 3020 ; Carrega " " para o acumulador
-0734 E100 ; Imprime " "
-0736 8012 ; Carrega o valor de MNEM para o acumulador
-0738 E100 ; Imprime o valor de MNEM
-073A B700 ; Retorna para o endereço em 0x700
+0718 403C ; Soma 0x030 ao valor de OPCODE
+071A E100 ; Imprime o valor de OPCODE
+071C 3020 ; Carrega " " para o acumulador
+071E E100 ; Imprime " "
+0720 304D ; Carrega "M" para o acumulador
+0722 E100 ; Imprime "M"
+0724 304E ; Carrega "N" para o acumulador
+0726 E100 ; Imprime "N"
+0728 3045 ; Carrega "E" para o acumulador
+072A E100 ; Imprime "E"
+072C 304D ; Carrega "M" para o acumulador
+072E E100 ; Imprime "M"
+0730 303A ; Carrega ":" para o acumulador
+0732 E100 ; Imprime ":"
+0734 3020 ; Carrega " " para o acumulador
+0736 E100 ; Imprime " "
+0738 8012 ; Carrega o valor de MNEM para o acumulador
+073A E100 ; Imprime o valor de MNEM
+073C B700 ; Retorna para o endereço em 0x700
 ; ================================================================================
 ; Implementação da sub-rotina OP2MNEM
 ; ================================================================================
@@ -205,7 +211,7 @@
 024E 3007 ; Carrega o valor 0x007 no acumulador (OPCODE = 0x007)
 0250 9010 ; Armazena o valor carregado na variável global OPCODE
 0252 B200 ; Retorna para o endereço contido em 0x0200
-0254 033D ; Carrega o valor 0x00D no acumulador (OPCODE = 0x00D)
+0254 300D ; Carrega o valor 0x00D no acumulador (OPCODE = 0x00D)
 0256 9010 ; Armazena o valor carregado na variável global OPCODE
 0258 B200 ; Retorna para o endereço contido em 0x0200
 025A 300C ; Carrega o valor 0x00C no acumulador (OPCODE = 0x00C)
@@ -254,7 +260,9 @@
 ; Programa principal
 ; ================================================================================
 0300 0302 ; Início do programa
-0302 3001 ; Carrega para o acumulador o valor desejado para OP
+;
+0302 3000 ; Carrega para o acumulador o valor desejado para OP
+;
 0304 9010 ; Guarda o valor na variável global OPCODE
 0306 3000 ; Carrega o valor 0x000 para o acumulador
 0308 9012 ; Guarda o valor na variável global MNEM
@@ -263,10 +271,25 @@
 030E A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
 0310 3000 ; Carrega o valor 0x000 para o acumulador
 0312 9010 ; Guarda o valor na variável global OPCODE
-0314 8406 ; Carrega para o acumulador o valor desejado para MNEM
+;
+0314 8400 ; Carrega para o acumulador o valor desejado para MNEM
+;
 0316 9012 ; Guarda o valor na variável global MNEM
 0318 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
 031A A200 ; Chama a sub-rotina MNEM2OP
 031C A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-031E C31E ; Fim do programa
+031E 307C ; Carrega "|" para o acumulador
+0320 E100 ; Imprime "|"
+0322 8024 ; Carrega o valor de Byte1MNEM para o acumulador
+0324 E100 ; Imprime o valor de Byte1MNEM
+0326 8026 ; Carrega o valor de Byte2MNEM para o acumulador
+0328 E100 ; Imprime o valor de Byte2MNEM
+032A C32A ; Fim do programa
+; ================================================================================
+; Controle dos valores de OP e MNEM
+; ================================================================================
+; OP = 0 e MNEM = 0
+; OP = 0 e MNEM = JP
+; OP = 0 e MNEM = JP
+; OP = 0 e MNEM = JP
 ; ================================================================================
