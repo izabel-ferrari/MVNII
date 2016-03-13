@@ -234,7 +234,7 @@
 0610 B600 ; Retorna para o endereço contido em 0x600
 ; ================================================================================
 ; Implementação da sub-rotina de impressão dos valores de OP e MNEM na tela
-; Resultado apresentado: |OP: <OPCODE> MNEM: <MNEM> 
+; Resultado apresentado: OP: <OPCODE> MNEM: <MNEM> 
 ; ================================================================================
 0700 0000 ; Endereço de retorno
 0702 8042 ; Carrega a quebra de linha para o acumulador
@@ -249,45 +249,47 @@
 0714 E100 ; Imprime " "
 0716 8010 ; Carrega o valor de OPCODE para o acumulador
 0718 503E ; Subtrai 0x00A do valor do acumulador
-071A 2742 ; Desvio se acumulador é negativo
-071C 4040 ; Soma 0x037 ao valor de OPCODE
-071E E100 ; Imprime o valor de OPCODE
-0720 3020 ; Carrega " " para o acumulador
-0722 E100 ; Imprime " "
-0724 304D ; Carrega "M" para o acumulador
-0726 E100 ; Imprime "M"
-0728 304E ; Carrega "N" para o acumulador
-072A E100 ; Imprime "N"
-072C 3045 ; Carrega "E" para o acumulador
-072E E100 ; Imprime "E"
-0730 304D ; Carrega "M" para o acumulador
-0732 E100 ; Imprime "M"
-0734 303A ; Carrega ":" para o acumulador
-0736 E100 ; Imprime ":"
-0738 3020 ; Carrega " " para o acumulador
-073A E100 ; Imprime " "
-073C 8012 ; Carrega o valor de MNEM para o acumulador
-073E E100 ; Imprime o valor de MNEM
-0740 B700 ; Retorna para o endereço em 0x700
-0742 403C ; Soma 0x030 ao valor de OPCODE
-0744 E100 ; Imprime o valor de OPCODE
-0746 3020 ; Carrega " " para o acumulador
-0748 E100 ; Imprime " "
-074A 304D ; Carrega "M" para o acumulador
-074C E100 ; Imprime "M"
-074E 304E ; Carrega "N" para o acumulador
-0750 E100 ; Imprime "N"
-0752 3045 ; Carrega "E" para o acumulador
-0754 E100 ; Imprime "E"
-0756 304D ; Carrega "M" para o acumulador
-0758 E100 ; Imprime "M"
-075A 303A ; Carrega ":" para o acumulador
-075C E100 ; Imprime ":"
-075E 3020 ; Carrega " " para o acumulador
-0760 E100 ; Imprime " "
-0762 8012 ; Carrega o valor de MNEM para o acumulador
-0764 E100 ; Imprime o valor de MNEM
-0766 B700 ; Retorna para o endereço em 0x700
+071A 2744 ; Desvio se acumulador é negativo
+071C 8010 ; Carrega o valor de OPCODE para o acumulador
+071E 4040 ; Soma 0x037 ao valor de OPCODE
+0720 E100 ; Imprime o valor de OPCODE
+0722 3020 ; Carrega " " para o acumulador
+0724 E100 ; Imprime " "
+0726 304D ; Carrega "M" para o acumulador
+0728 E100 ; Imprime "M"
+072A 304E ; Carrega "N" para o acumulador
+072C E100 ; Imprime "N"
+072E 3045 ; Carrega "E" para o acumulador
+0730 E100 ; Imprime "E"
+0732 304D ; Carrega "M" para o acumulador
+0734 E100 ; Imprime "M"
+0736 303A ; Carrega ":" para o acumulador
+0738 E100 ; Imprime ":"
+073A 3020 ; Carrega " " para o acumulador
+073C E100 ; Imprime " "
+073E 8012 ; Carrega o valor de MNEM para o acumulador
+0740 E100 ; Imprime o valor de MNEM
+0742 B700 ; Retorna para o endereço em 0x700
+0744 8010 ; Carrega o valor de OPCODE para o acumulador
+0746 403C ; Soma 0x030 ao valor de OPCODE
+0748 E100 ; Imprime o valor de OPCODE
+074A 3020 ; Carrega " " para o acumulador
+074C E100 ; Imprime " "
+074E 304D ; Carrega "M" para o acumulador
+0750 E100 ; Imprime "M"
+0752 304E ; Carrega "N" para o acumulador
+0754 E100 ; Imprime "N"
+0756 3045 ; Carrega "E" para o acumulador
+0758 E100 ; Imprime "E"
+075A 304D ; Carrega "M" para o acumulador
+075C E100 ; Imprime "M"
+075E 303A ; Carrega ":" para o acumulador
+0760 E100 ; Imprime ":"
+0762 3020 ; Carrega " " para o acumulador
+0764 E100 ; Imprime " "
+0766 8012 ; Carrega o valor de MNEM para o acumulador
+0768 E100 ; Imprime o valor de MNEM
+076A B700 ; Retorna para o endereço em 0x700
 ; ================================================================================
 ; Testes para a função OP2MNEM
 ; ================================================================================
